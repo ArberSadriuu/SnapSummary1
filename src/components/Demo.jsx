@@ -6,7 +6,6 @@ const Demo = () => {
     const [activeTab, setActiveTab] = useState("summarize")
     const [copied, setCopied] = useState("")
     
-    // Get state and actions from Zustand store
     const { 
         articles, 
         currentArticle, 
@@ -26,25 +25,20 @@ const Demo = () => {
         
         if (!currentArticle.url.trim()) return;
         
-        // Set loading state and clear any previous errors
         setLoading(true)
         setError(null)
         
         try {
-            // Call the API function
             const result = await fetchArticleSummary(currentArticle.url)
             
             if (result) {
-                // Create new article with result data
                 const newArticle = { 
                     url: currentArticle.url, 
                     summary: result.summary || result.text || "No summary available"
                 }
                 
-                // Add the article to our store
                 addArticle(newArticle)
                 
-                // Clear the input field
                 clearUrl()
             }
         } catch (err) {
@@ -73,7 +67,6 @@ const Demo = () => {
             <div className="relative mb-8">
                 <div className="absolute -inset-1 bg-gradient-to-r from-accent to-accent-dark rounded-lg blur opacity-25"></div>
                 <div className="relative bg-gray-800 rounded-lg shadow-xl overflow-hidden">
-                    {/* Tabs navigation */}
                     <div className="flex border-b border-gray-700">
                         <button 
                             className={`flex-1 px-6 py-4 text-center font-medium transition-colors ${activeTab === "summarize" ? "text-accent border-b-2 border-accent bg-gray-800" : "text-gray-400 hover:text-gray-300 hover:bg-gray-700"}`}
@@ -99,7 +92,6 @@ const Demo = () => {
                         </button>
                     </div>
 
-                    {/* Tab content */}
                     <div className="p-6">
                         {activeTab === "summarize" && (
                             <div className='flex flex-col w-full gap-6'>
@@ -136,7 +128,6 @@ const Demo = () => {
                                     </div>
                                 </form>
 
-                                {/* Results section */}
                                 <div className="mt-4">
                                     {isLoading ? (
                                         <div className="flex flex-col items-center justify-center py-12">

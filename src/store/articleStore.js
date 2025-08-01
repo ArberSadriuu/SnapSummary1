@@ -14,7 +14,6 @@ export const useArticleStore = create(
       setCurrentArticle: (article) => set({ currentArticle: article }),
       updateUrl: (url) => set({ currentArticle: { ...get().currentArticle, url } }),
       
-      // Add a new article to the store
       addArticle: (article) => {
         const updatedArticles = [article, ...get().articles];
         set({ 
@@ -23,32 +22,27 @@ export const useArticleStore = create(
         });
       },
       
-      // Delete an article from the store
       deleteArticle: (index) => {
         const newArticles = [...get().articles];
         newArticles.splice(index, 1);
         set({ articles: newArticles });
       },
       
-      // Set loading state
       setLoading: (isLoading) => set({ isLoading }),
       
-      // Set error state
       setError: (error) => set({ error }),
       
-      // Clear the current article URL
       clearUrl: () => set({ 
         currentArticle: { ...get().currentArticle, url: '' } 
       })
     }),
     {
-      name: 'article-storage', // name of the localStorage key
-      partialize: (state) => ({ articles: state.articles }), // only persist articles
+      name: 'article-storage',
+      partialize: (state) => ({ articles: state.articles }),
     }
   )
 );
 
-// Function to fetch article summary
 export const fetchArticleSummary = async (articleUrl) => {
   const url = 'https://news-article-data-extract-and-summarization1.p.rapidapi.com/extract/';
   const options = {

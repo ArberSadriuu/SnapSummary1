@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -19,7 +18,7 @@ export default {
   		},
   		colors: {
   			accent: {
-  				DEFAULT: '#3b82f6', // blue-500
+  				DEFAULT: '#3b82f6',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			background: 'hsl(var(--background))',

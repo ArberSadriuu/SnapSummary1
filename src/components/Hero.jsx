@@ -4,12 +4,10 @@ const Hero = () => {
   const [showHowItWorks, setShowHowItWorks] = useState(false)
   return (
     <header className='relative w-full mt-8'>
-      {/* Background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-accent/10 rounded-full blur-3xl"></div>
       </div>
-      {/* Navigation */}
       <nav className='flex justify-between items-center w-full mb-16'>
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold text-accent">
@@ -17,7 +15,6 @@ const Hero = () => {
           </span>
         </div>
       </nav>
-      {/* Hero content */}
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <h1 className='text-5xl md:text-6xl font-extrabold leading-tight text-accent'>
@@ -68,7 +65,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* Features section */}
       <div className="mt-24 grid md:grid-cols-3 gap-8" id="features">
         <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
           <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-accent/10 text-accent mb-4">
@@ -98,7 +94,6 @@ const Hero = () => {
           <p className="text-gray-400">Access your summary history anytime, with automatic cloud synchronization.</p>
         </div>
       </div>
-      {/* How it works Modal */}
       {showHowItWorks && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
           <div className="bg-gray-900 rounded-2xl shadow-2xl border border-accent max-w-lg w-full p-8 relative animate-fade-in">
